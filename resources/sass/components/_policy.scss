@@ -1,0 +1,44 @@
+.policy {
+    color: $baseDarker;
+    font-size: 16px;
+    margin: 30px;
+
+    h1 {
+        font-size: 36px;
+        margin: 36px 0;
+        font-weight: bold;
+        a {
+            color: $baseDarker;
+        }
+    }
+
+    h2 {
+        font-size: 24px;
+        margin: 24px 0;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-size: 19px;
+        margin: 19px 0;
+        font-weight: bold;
+    }
+
+    p {
+        text-align: justify;
+        line-height: 24px;
+    }
+
+    ol {
+        line-height: 24px;   
+    }
+
+}
+
+@media only screen and (min-width: 980px) {
+    .policy {
+        width: auto;
+        max-width: 920px;
+        margin: 30px auto;
+    }
+}
