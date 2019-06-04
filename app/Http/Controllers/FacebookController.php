@@ -10,8 +10,8 @@ class FacebookController extends Controller
     public function friends()
     {
         $fb = new \Facebook\Facebook([
-            'app_id' => env('FACEBOOK_CLIENT_ID'),
-            'app_secret' => env('FACEBOOK_CLIENT_SECRET'),
+            'app_id' => config('services.facebook.client_id'),
+            'app_secret' => config('services.facebook.client_secret'),
             'default_graph_version' => 'v3.3',
         ]);
 
