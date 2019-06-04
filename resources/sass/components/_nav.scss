@@ -1,0 +1,136 @@
+.nav {
+    height: 60px;
+    width: 100%;
+    min-width: 260px;
+    max-width: 1344px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0px 3px 8px -4px rgba(0,0,0,0.15);
+    background-color: white;
+    position: fixed;
+    z-index: 10;
+    border-radius: 0 0 5px 5px;
+}
+
+.nav-spacer {
+    height: 60px;
+}
+
+.menu {
+    flex: 1 0 0;
+    display: flex;
+}
+
+.menu-item {
+    padding-right: 21px;
+    text-transform: uppercase;
+}
+
+.menu-item a {
+    color: $accent;
+}
+
+.menu-item:last-of-type {
+    padding-right: 0;
+}
+
+.menu-icon {
+    font-size: 21px;
+}
+
+.menu-logo {
+    height: 26px;
+}
+
+.menu-logo-label {
+    display: none;
+}
+
+.menu-logo-wrapper {
+}
+
+.menu-label {
+    display: none;
+    margin-left: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: $nice;
+}
+
+.profile {
+    flex: 1 0 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    height: 34px;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,.35);
+}
+
+.profile-dropdown {
+    position: absolute;
+    right: 20px;
+    width: 220px;
+    top: 48px;
+    border: 1px solid rgba(0,0,0,.35);
+    border-radius: 5px;
+    background-color: white;
+    display: none;
+    flex-direction: column;
+}
+
+.profile-item {
+    padding: 15px 0;
+    text-align: center;
+    color: black;
+    display: block;
+}
+
+.profile-item:last-of-type {
+    border-bottom: none;
+}
+
+.profile-join {
+    color: $accent;
+    font-family: $nice;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+@media only screen and (min-width: $breakDesktop) {
+    .menu-logo {
+        right: -15px;
+        position: relative;
+        top: -5px;
+    }
+
+    .menu-logo-label {
+        display: inline;
+        font-family: "Dosis", sans-serif;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #F26242;
+        font-size: 21px;
+    }
+
+    .menu-logo-wrapper {
+        display: inline-block;
+        position: relative;
+        left: -15px;
+    }
+
+    .menu-item {
+        padding: 0 24px 0 0;
+    }
+
+    .menu-label  {
+        display: initial;
+    }
+}

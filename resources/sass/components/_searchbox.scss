@@ -1,0 +1,66 @@
+.searchbox {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 34px;
+    padding: 0 9px;
+    border-radius: 32px;
+    border: 1px solid rgba(0,0,0,.35);
+    margin: 0 15px 0 0;
+}
+        
+.searchbox-icon {
+    color: $baseLight;
+}
+
+.searchbox-input {
+    height: 28px;
+    border: 0;
+    padding: 0;
+    width: 0;
+}
+
+.friends {
+    background-color: white;
+    position: absolute;
+    top: 35px;
+    left: -42px;
+    width: 250px;
+    border: 1px solid rgba(0,0,0,.15);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+    display: none;
+    border-radius: 5px;
+}
+
+.friend {
+    height: 60px;
+    font-size: 14px;
+    color: black;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    padding: 0 15px 0 0;
+}
+
+.friend-pic {
+    border-radius: 50%;
+    height: 38px;
+    margin: 11px;
+    float: left;
+}
+
+.friend-name {
+    line-height: 60px;
+    margin-left: 10px;
+}
+
+.searchbox-input::placeholder {
+    color: $baseLight;
+}
+
+@media only screen and (min-width: $breakDesktop) {
+    .searchbox-input {
+        width: 155px;
+    }
+}

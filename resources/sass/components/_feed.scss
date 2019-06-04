@@ -1,0 +1,202 @@
+.wellcome {    
+    margin: 60px 0 40px 0;
+    color: $baseDark;
+    text-align: center;
+}
+
+.wellcome-title {
+    font-size: 44px;
+}
+
+.wellcome-subtitle {
+    font-size: 21px;
+}
+
+.wellcome-separator {
+    display: none;
+}
+
+.feed {
+    padding: 0 20px;
+}
+
+.feed-heading {
+    margin-top: 20px;
+    color: $baseLight;
+    font-size: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feed-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: $baseLight;
+}
+
+.feed-item {
+    height:300px;
+    margin: 20px 0 0 0;
+    width: 100%;
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.25);
+    border-radius: 5px;
+    background-color: white;
+    position: relative;
+    transition: opacity .5s ease-out;
+}
+
+.feed-overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    position: absolute;
+    background-color: white;
+    display: none;
+}
+
+.feed-item:hover .feed-overlay {
+    display: block;
+}
+
+.feed-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.feed-action {
+    padding: 8px 0;
+    color: black;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,.25);
+    display: inline;
+    margin: 8px auto;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 14px;
+    width: 140px;
+}
+
+.feed-action-disabled {
+    color: $baseLightest;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    position: relative;
+
+}
+
+.feed-action-disabled::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    background-color: $accent;
+    display: none;
+    border-radius: 5px;
+    padding: 6px;
+    font-size: 11px;
+    color: white;
+    width: 110px;
+    top: -30px;
+    right: -50px;
+    line-height: 14px;
+}
+
+.feed-action-disabled:hover::after {
+    display: block;
+}
+
+.feed-pic {
+    height: 200px;
+    margin: 25px auto;
+    display: block;
+    max-width: 100%;
+}
+
+.feed-price {
+    margin: 5px 20px;
+    font-size: 14px;
+    color: $base;
+}
+
+.feed-description {
+    margin: 5px 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 14px;
+    color: $base;
+}
+
+.heading-icon {
+    cursor: pointer;
+    color: $accent;
+}
+
+.heading-action {
+    color: $accent;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.heading-pic {
+    border-radius: 50%;
+    height: 38px;
+    margin: 0 11px;
+    float: left;
+}
+
+.list-add {
+    margin: 20px auto 0 auto;
+    display: none;
+    justify-content: center;
+}
+
+.list-add-input {
+    padding: 8px;
+    border: none;
+    width: 200px;
+    border-radius: 5px;
+    color: $base;
+}
+
+.list-add-button {
+    color: $accent;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    background: none;
+    padding: 8px;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: $breakDesktop) {
+    .wellcome {  
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+    }
+
+    .wellcome-title, .wellcome-subtitle {
+        font-size: 50px;
+    }
+
+    .wellcome-separator {
+        display: inline-block;
+        font-size: 50px;
+        margin: 0 20px 0 0;
+    }
+
+
+    .feed {
+        padding: 0;
+    }
+
+    .feed-item {
+        margin: 20px 20px 0 0;
+        width: 428px;
+    }
+}

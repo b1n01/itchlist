@@ -1,0 +1,24 @@
+// Colors
+
+$base: #929292;
+$baseDarkest: darken($base, 30%);
+$baseDarker: darken($base, 20%);
+$baseDark: darken($base, 10%);
+$baseLight: lighten($base, 10%);
+$baseLighter: lighten($base, 20%);
+$baseLightest: lighten($base, 30%);
+
+$accent: #F26242;
+$accentDarkest: darken($accent, 20%);
+$accentDarker: darken($accent, 10%);
+$accentDark: darken($accent, 5%);
+$accentLight: lighten($accent, 5%);
+$accentLighter: lighten($accent, 10%);
+$accentLightest: lighten($accent, 20%);
+
+// Fonts
+$regular: 'Open Sans', sans-serif;
+$nice: 'Dosis', sans-serif;
+
+// Media query
+$breakDesktop : 650px;

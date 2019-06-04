@@ -1,0 +1,33 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Dosis:400,700|Open+Sans:400,700&display=swap');
+
+// Variables
+@import 'variables';
+
+// Components
+@import 'reset'; 
+
+html, body {
+    font-family: $regular;
+    min-width: 300px;
+    background-color: #f0f0f0;
+    max-width: 1344px;
+    margin: 0 auto;
+}
+
+.debug {
+    border: 1px solid black;
+}
+
+a, a:focus, a:hover, a:active {
+    text-decoration: none;
+}
+
+*:focus {
+    outline: none;
+}
+
+// Components
+@import 'components/nav';
+@import 'components/searchbox'; 
+@import 'components/feed'; 

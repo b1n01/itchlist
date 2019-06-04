@@ -1,0 +1,580 @@
+@import url(https://fonts.googleapis.com/css?family=Dosis:400,700|Open+Sans:400,700&display=swap);/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html,
+body {
+  font-family: "Open Sans", sans-serif;
+  min-width: 300px;
+  background-color: #f0f0f0;
+  max-width: 1344px;
+  margin: 0 auto;
+}
+
+.debug {
+  border: 1px solid black;
+}
+
+a,
+a:focus,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+*:focus {
+  outline: none;
+}
+
+.nav {
+  height: 60px;
+  width: 100%;
+  min-width: 260px;
+  max-width: 1344px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0px 3px 8px -4px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  position: fixed;
+  z-index: 10;
+  border-radius: 0 0 5px 5px;
+}
+
+.nav-spacer {
+  height: 60px;
+}
+
+.menu {
+  flex: 1 0 0;
+  display: flex;
+}
+
+.menu-item {
+  padding-right: 21px;
+  text-transform: uppercase;
+}
+
+.menu-item a {
+  color: #F26242;
+}
+
+.menu-item:last-of-type {
+  padding-right: 0;
+}
+
+.menu-icon {
+  font-size: 21px;
+}
+
+.menu-logo {
+  height: 26px;
+}
+
+.menu-logo-label {
+  display: none;
+}
+
+.menu-label {
+  display: none;
+  margin-left: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Dosis", sans-serif;
+}
+
+.profile {
+  flex: 1 0 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  height: 34px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+.profile-dropdown {
+  position: absolute;
+  right: 20px;
+  width: 220px;
+  top: 48px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-radius: 5px;
+  background-color: white;
+  display: none;
+  flex-direction: column;
+}
+
+.profile-item {
+  padding: 15px 0;
+  text-align: center;
+  color: black;
+  display: block;
+}
+
+.profile-item:last-of-type {
+  border-bottom: none;
+}
+
+.profile-join {
+  color: #F26242;
+  font-family: "Dosis", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+@media only screen and (min-width: 650px) {
+  .menu-logo {
+    right: -15px;
+    position: relative;
+    top: -5px;
+  }
+
+  .menu-logo-label {
+    display: inline;
+    font-family: "Dosis", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #F26242;
+    font-size: 21px;
+  }
+
+  .menu-logo-wrapper {
+    display: inline-block;
+    position: relative;
+    left: -15px;
+  }
+
+  .menu-item {
+    padding: 0 24px 0 0;
+  }
+
+  .menu-label {
+    display: initial;
+  }
+}
+
+.searchbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 9px;
+  border-radius: 32px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  margin: 0 15px 0 0;
+}
+
+.searchbox-icon {
+  color: #acacac;
+}
+
+.searchbox-input {
+  height: 28px;
+  border: 0;
+  padding: 0;
+  width: 0;
+}
+
+.friends {
+  background-color: white;
+  position: absolute;
+  top: 35px;
+  left: -42px;
+  width: 250px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+  display: none;
+  border-radius: 5px;
+}
+
+.friend {
+  height: 60px;
+  font-size: 14px;
+  color: black;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: block;
+  padding: 0 15px 0 0;
+}
+
+.friend-pic {
+  border-radius: 50%;
+  height: 38px;
+  margin: 11px;
+  float: left;
+}
+
+.friend-name {
+  line-height: 60px;
+  margin-left: 10px;
+}
+
+.searchbox-input::-webkit-input-placeholder {
+  color: #acacac;
+}
+
+.searchbox-input::-moz-placeholder {
+  color: #acacac;
+}
+
+.searchbox-input:-ms-input-placeholder {
+  color: #acacac;
+}
+
+.searchbox-input::-ms-input-placeholder {
+  color: #acacac;
+}
+
+.searchbox-input::placeholder {
+  color: #acacac;
+}
+
+@media only screen and (min-width: 650px) {
+  .searchbox-input {
+    width: 155px;
+  }
+}
+
+.wellcome {
+  margin: 60px 0 40px 0;
+  color: #797979;
+  text-align: center;
+}
+
+.wellcome-title {
+  font-size: 44px;
+}
+
+.wellcome-subtitle {
+  font-size: 21px;
+}
+
+.wellcome-separator {
+  display: none;
+}
+
+.feed {
+  padding: 0 20px;
+}
+
+.feed-heading {
+  margin-top: 20px;
+  color: #acacac;
+  font-size: 14px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feed-items {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: #acacac;
+}
+
+.feed-item {
+  height: 300px;
+  margin: 20px 0 0 0;
+  width: 100%;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  background-color: white;
+  position: relative;
+  transition: opacity 0.5s ease-out;
+}
+
+.feed-overlay {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  position: absolute;
+  background-color: white;
+  display: none;
+}
+
+.feed-item:hover .feed-overlay {
+  display: block;
+}
+
+.feed-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.feed-action {
+  padding: 8px 0;
+  color: black;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  display: inline;
+  margin: 8px auto;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+  width: 140px;
+}
+
+.feed-action-disabled {
+  color: #dfdfdf;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.feed-action-disabled::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  background-color: #F26242;
+  display: none;
+  border-radius: 5px;
+  padding: 6px;
+  font-size: 11px;
+  color: white;
+  width: 110px;
+  top: -30px;
+  right: -50px;
+  line-height: 14px;
+}
+
+.feed-action-disabled:hover::after {
+  display: block;
+}
+
+.feed-pic {
+  height: 200px;
+  margin: 25px auto;
+  display: block;
+  max-width: 100%;
+}
+
+.feed-price {
+  margin: 5px 20px;
+  font-size: 14px;
+  color: #929292;
+}
+
+.feed-description {
+  margin: 5px 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 14px;
+  color: #929292;
+}
+
+.heading-icon {
+  cursor: pointer;
+  color: #F26242;
+}
+
+.heading-action {
+  color: #F26242;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.heading-pic {
+  border-radius: 50%;
+  height: 38px;
+  margin: 0 11px;
+  float: left;
+}
+
+.list-add {
+  margin: 20px auto 0 auto;
+  display: none;
+  justify-content: center;
+}
+
+.list-add-input {
+  padding: 8px;
+  border: none;
+  width: 200px;
+  border-radius: 5px;
+  color: #929292;
+}
+
+.list-add-button {
+  color: #F26242;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  background: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 650px) {
+  .wellcome {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+  }
+
+  .wellcome-title,
+  .wellcome-subtitle {
+    font-size: 50px;
+  }
+
+  .wellcome-separator {
+    display: inline-block;
+    font-size: 50px;
+    margin: 0 20px 0 0;
+  }
+
+  .feed {
+    padding: 0;
+  }
+
+  .feed-item {
+    margin: 20px 20px 0 0;
+    width: 428px;
+  }
+}
+
