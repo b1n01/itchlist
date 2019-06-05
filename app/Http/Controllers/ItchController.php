@@ -39,6 +39,7 @@ class ItchController extends Controller
         $itch->seller = $seller;
         $itch->description = $description;
         $itch->provider = 'amazon';
+        $itch->booked_by = null;
 
         $itch->save();
 
