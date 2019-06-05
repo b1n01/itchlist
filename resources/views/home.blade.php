@@ -22,7 +22,7 @@
                 <span id="feed-share">
                     <i class="fas fa-share-alt heading-icon"></i>
                     <span class="heading-action">Share</span>
-                    <span id="share-list" data-share="{{ 'http:' . route('list') . '/' . auth()->user()->uuid }}"></span>
+                    <span id="share-list" data-share="{{ route('list') . '/' . auth()->user()->uuid }}"></span>
                 </span>
             </p>
             <p id="feed-heading-copied" class="feed-heading" style="display: none;">
