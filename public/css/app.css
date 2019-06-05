@@ -478,6 +478,7 @@ a:active {
   position: absolute;
   background-color: white;
   display: none;
+  background: rgba(255, 255, 255, 0.75);
 }
 
 .feed-item:hover .feed-overlay {
@@ -502,7 +503,7 @@ a:active {
   background-color: white;
   cursor: pointer;
   font-size: 14px;
-  width: 140px;
+  width: 160px;
 }
 
 .feed-action-disabled {
@@ -578,11 +579,13 @@ a:active {
 }
 
 .list-add-input {
-  padding: 8px;
+  padding: 0 8px;
   border: none;
-  width: 200px;
+  width: 250px;
   border-radius: 5px;
   color: #929292;
+  font-size: 15px;
+  height: 32px;
 }
 
 .list-add-button {
@@ -593,6 +596,8 @@ a:active {
   background: none;
   padding: 8px;
   cursor: pointer;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
 }
 
 @media only screen and (min-width: 650px) {
