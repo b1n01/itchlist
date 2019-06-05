@@ -50,3 +50,8 @@ Il primo vincolo ci permette di facilitare la ricerca nella piattaforma: puoi ce
 - favicon
 - aggungi footer con terms & condition
 - add coockie consense
+
+## WARNING
+- Sempre installare sudo apt-get install php7.2-curl altrimenti facebook graph-sdk cerca di utilizzare guzzle 5
+ma laravel richiede il 6 e si rompe
+- Semplre installase sudo apt-get install php7.2-mbstring

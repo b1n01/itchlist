@@ -11,7 +11,7 @@
             <div class="feed-item">
                     <img class="feed-pic" src="{{ $itch->pic ?: asset('images/loading-preview.svg')}}">
                     <p class="feed-price">{{ $itch->price ?: ''}}</p>
-                    <p class="feed-description">{{ $itch->description ?: 'See on Amazon' }}</p>
+                    <p class="feed-description">{{ $itch->description ?: $itch->url }}</p>
                     <div class="feed-overlay">
                         <div class=feed-actions>
 
