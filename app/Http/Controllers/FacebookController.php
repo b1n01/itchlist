@@ -36,12 +36,13 @@ class FacebookController extends Controller
         foreach ($friendsGraphEdge as $friendsGraphNode) {
 
             $localUser = User::where('provider_user_id', $friendsGraphNode->getField('id'))->first();
-
-            $friends[] = [
-                'name' => $friendsGraphNode->getField('name'),
-                'pic' => $friendsGraphNode->getProperty('picture')->getField('url'),
-                'uuid' => $localUser->uuid,
-            ];
+            if($localUser) {
+                $friends[] = [
+                    'name' => $friendsGraphNode->getField('name'),
+                    'pic' => $friendsGraphNode->getProperty('picture')->getField('url'),
+                    'uuid' => $localUser->uuid,
+                ];
+            }
         }
 
         return response()->json($friends);
