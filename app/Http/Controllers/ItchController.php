@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Itch;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Goutte\Client as Guotte;
 
 
@@ -12,11 +13,15 @@ class ItchController extends Controller
     public function add(Request $request)
     {
         $url = $request->get('provider-url');
+
+        if (filter_var($url, FILTER_VALIDATE_URL) === FALSE) {
+            return response()->json(['response' => 'Invalid url'], 400);
+        }
         
         $guotte = new Guotte();
         $crawler = $guotte->request('GET', $url);
 
-        $description = null;
+        $description = '';
         $crawler->filter('#productTitle')->each(function($node) use (&$description){
             $description = trim($node->text());
         });
@@ -26,15 +31,20 @@ class ItchController extends Controller
             $price = trim($node->text()) ? trim($node->text()) : $price;
         });
 
-        $seller = null;
+        $seller = '';
         $crawler->filter('#bylineInfo')->each(function($node) use (&$seller){
             $seller = trim($node->text());
+        });
+
+        $pic = '';
+        $crawler->filter('#landingImage')->each(function($node) use (&$pic){
+            $pic = trim($node->text());
         });
 
         $itch = new Itch();
         $itch->user_id = auth()->user()->id;
         $itch->url = $url;
-        $itch->pic = ''; // TODO PIC
+        $itch->pic = $pic;
         $itch->price = $price;
         $itch->seller = $seller;
         $itch->description = $description;
@@ -51,7 +61,7 @@ class ItchController extends Controller
         $itch = Itch::find($id);
 
         if($itch && $itch->user_id == auth()->user()->id) {
-            //$itch->delete();
+            $itch->delete();
         }
 
         return response()->json(['response' => 'ok']);
@@ -62,13 +72,13 @@ class ItchController extends Controller
         $itch = Itch::find($id);
 
         if(!$itch) {
-            return Response::json(['response' => 'Itch not found'], 404);
+            return response()->json(['response' => 'Itch not found'], 404);
         } else {
             $user = auth()->user();
             $friend = User::find($itch->user_id);
             $areFriend = ListController::areFriends($user, $friend);
             if(!$areFriend) {
-                return Response::json(['response' => 'You can only book for your frineds'], 401);
+                return response()->json(['response' => 'You can only book for your frineds'], 401);
             }
 
             $itch->booked_by = $user;
