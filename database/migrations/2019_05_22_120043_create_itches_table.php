@@ -25,7 +25,7 @@ class CreateItchesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->unsignedBigInteger('booked_by');
+            $table->unsignedBigInteger('booked_by')->nullable();
             $table->foreign('booked_by')->references('id')->on('users');
             
             $table->timestamps();
