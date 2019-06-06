@@ -204,6 +204,56 @@ a:active {
   }
 }
 
+.login-box-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.login-box {
+  background-color: white;
+  padding: 40px 20px;
+  border-radius: 5px;
+  min-width: 280px;
+  width: 50%;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-discaimer {
+  color: #929292;
+  text-align: center;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.fb-login-button-b {
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: #4267b2;
+  color: white;
+  font-size: 16px;
+  border-radius: 4px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border: none;
+  padding: 0 8px;
+  margin: 20px auto;
+}
+
+.fb-login-logo {
+  height: 24px;
+  width: 24px;
+}
+
+.fb-login-label {
+  margin: 0 12px;
+}
+
 .nav {
   height: 60px;
   width: 100%;
@@ -302,7 +352,6 @@ a:active {
 .profile-join {
   color: #F26242;
   font-family: "Dosis", sans-serif;
-  font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
 }

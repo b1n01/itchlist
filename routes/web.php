@@ -16,6 +16,7 @@ Route::get('/', 'ListController@list')->name('list');
 Route::get('/{uuid}', 'ListController@friendList')->name('friend.list');
 
 // Auth
+Route::get('/auth/join', 'AuthController@loginForm')->name('login.form');
 Route::get('/auth/login', 'AuthController@login')->name('login');
 Route::get('/auth/confirm', 'AuthController@confirm')->name('confirm');
 Route::post('/auth/logout', 'AuthController@logout')->name('logout');

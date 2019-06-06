@@ -48,7 +48,7 @@
 
             @guest
             <div class="profile">
-                <a class="profile-join" href="{{ route('login') }}">facebook login</a>
+                <a class="profile-join" href="{{ route('login.form') }}">Join</a>
             </div>
             @else
              <div class="profile">
