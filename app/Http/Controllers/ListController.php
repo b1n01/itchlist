@@ -12,10 +12,10 @@ class ListController extends Controller
     {
         $user = auth()->user();
         if($user) {
-            $itches = Itch::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
+            $itches = Itch::where('user_id', $user->id)->limit(15)->orderBy('created_at', 'desc')->get();
             return view('home', ['itches' => $itches]);           
         } else {
-            $itches = Itch::orderBy('created_at', 'desc')->get();
+            $itches = Itch::orderBy('created_at', 'desc')->limit(15)->get();
             return view('home', ['itches' => $itches]);
         }
     }
