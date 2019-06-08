@@ -120,7 +120,7 @@ window.onload = function () {
     });
 
     if (friendsHtml == '') {
-      friendsHtml = '<li class="friend"><span class="friend-name">No results. Invite you friend</span></li>';
+      friendsHtml = '<li class="friend"><span class="friend-name">No results found</span></li>';
     }
 
     $('#frieds').html(friendsHtml);
@@ -243,6 +243,29 @@ window.onload = function () {
       }
     },
     "theme": "edgeless"
+  }); // Delete account
+
+  $('#account-delete').click(function () {
+    var button = $('#account-delete');
+    var input = $('#account-delete-input');
+    var label = $('#account-delete-label');
+    var passphrase = button.attr('data-passphrase').trim().toLowerCase();
+    var inputText = input.val().trim().toLowerCase();
+
+    if (inputText !== passphrase) {
+      label.css('display', 'inline');
+    } else {
+      if (button.attr('data-confirm') == 'true') {
+        button.html('Deleting <i class="fas fa-circle-notch fa-spin"></i>');
+        axios["delete"]('/api/me/account').then(function () {
+          document.location.href = '/';
+        });
+      } else {
+        button.text('Click again to delete');
+        button.attr('data-confirm', true);
+        label.css('display', 'none');
+      }
+    }
   });
 };
 

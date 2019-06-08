@@ -16,17 +16,17 @@ class CreateItchesTable extends Migration
         Schema::create('itches', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('url');
-            $table->string('pic');
+            $table->longText('pic');
             $table->string('description');
             $table->string('price');
             $table->string('seller');
             $table->string('provider');
 
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');;
 
             $table->unsignedBigInteger('booked_by')->nullable();
-            $table->foreign('booked_by')->references('id')->on('users');
+            $table->foreign('booked_by')->references('id')->on('users')->onDelete('set null');;
             
             $table->timestamps();
         });

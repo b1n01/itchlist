@@ -23,11 +23,9 @@ class FacebookController extends Controller
                 $user->provider_user_token
             );
         } catch(FacebookExceptionsFacebookResponseException $e) {
-            echo 'Graph returned an error: ' . $e->getMessage();
-          exit;
+            return response()->json(['message' => 'erroe contactin Facebook'], 500);
         } catch(FacebookExceptionsFacebookSDKException $e) {
-            echo 'Facebook SDK returned an error: ' . $e->getMessage();
-            exit;
+            return response()->json(['message' => 'erroe contactin Facebook'], 500);
         }
 
         $friendsGraphEdge = $friendsResponse->getGraphEdge();

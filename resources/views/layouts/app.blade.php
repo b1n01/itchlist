@@ -38,7 +38,7 @@
     </div>
      <div id="profile-dropdown" class="profile-dropdown">
         <!-- <a href="{ route('home') }}" class="profile-item">My list</a> -->
-        <a href="#" class="profile-item">Account</a>
+        <a href="{{ route('account') }}" class="profile-item">Account</a>
         <!-- <a href="#" class="profile-item">About</a> -->
         <a 
             class="profile-item"  

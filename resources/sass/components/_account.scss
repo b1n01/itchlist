@@ -1,0 +1,48 @@
+.account {
+    margin: 40px 0;
+    padding: 20px 0;
+    background-color: white;
+    color: $baseDarker;
+    font-size: 14px;
+    line-height: 18px;
+    border-radius: 5px;
+    margin-bottom: -45px;
+}
+
+.account-heading {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.account-content {
+    padding: 0 20px;
+    width: 280px;
+    margin: 40px auto 0 auto;
+}
+
+.account-delete-input {
+    padding: 8px;
+    margin: 12px 0;
+    width: 262px;
+    border: 1px solid $base;
+    display: block;
+}
+
+.account-delete-input::placeholder {
+    font-size: 13px;
+}
+
+.account-delete {
+    border: none;
+    background-color: red;
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.account-delete-label {
+    display: none;
+    color: red;
+    padding: 8px;
+}

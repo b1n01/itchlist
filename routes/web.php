@@ -31,4 +31,8 @@ Route::group(['middleware' => 'auth'], function () {
     
     // Friends
     Route::get('/api/friends', 'FacebookController@friends')->name('friends');
+
+    // Account
+    Route::get('/me/account', 'AccountController@account')->name('account');
+    Route::delete('/api/me/account', 'AccountController@delete')->name('account.delete');
 });
