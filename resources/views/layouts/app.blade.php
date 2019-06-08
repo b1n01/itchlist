@@ -86,6 +86,19 @@
         <main>
             @yield('content')  
         </main> 
+
+        <section class="footer">
+
+            <ul>
+                <li class="footer-item"><a target="_blank" href="/static/about.html">About</a></li>
+                <li class="footer-item"><a target="_blank" href="/static/policy.html#privacy">Privacy</a></li>
+                <li class="footer-item"><a target="_blank" href="/static/policy.html#terms">Terms</a></li>
+                <li class="footer-item"><a target="_blank" href="https://www.cookiesandyou.com/">Cookies</a></li>
+            </ul>
+
+            <p class="footer-disclaimer">©{{ date('Y') }} Itchlist all rights reserved</p>
+
+        </section>
     </div>
 </body>
 </html>

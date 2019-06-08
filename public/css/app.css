@@ -254,6 +254,30 @@ a:active {
   margin: 0 12px;
 }
 
+.footer {
+  background-color: white;
+  padding: 20px 40px;
+  margin: 40px 0 0 0;
+  color: #929292;
+  font-size: 14px;
+  text-align: center;
+}
+
+.footer-disclaimer {
+  margin: 20px 0 0 0;
+}
+
+.footer-item {
+  display: inline;
+  color: #929292;
+  margin: 5px;
+  display: inline;
+}
+
+.footer-item a {
+  color: #929292;
+}
+
 .nav {
   height: 60px;
   width: 100%;
