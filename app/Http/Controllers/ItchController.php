@@ -7,14 +7,17 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Goutte\Client as Guotte;
 
-
 class ItchController extends Controller
 {
     public function add(Request $request)
     {
-        $url = $request->get('provider-url');
+        $url = trim($request->get('provider-url'));
 
         if (filter_var($url, FILTER_VALIDATE_URL) === FALSE) {
+            return response()->json(['response' => 'Invalid url'], 400);
+        }
+
+        if (strpos( parse_url($url)['host'], 'amazon') == false ) {
             return response()->json(['response' => 'Invalid url'], 400);
         }
         
@@ -23,17 +26,17 @@ class ItchController extends Controller
 
         $description = '';
         $crawler->filter('#productTitle')->each(function($node) use (&$description){
-            $description = trim($node->text());
+            $description = substr(trim($node->text()), 0, 250);
         });
 
         $price = '';
         $crawler->filter('#priceblock_dealprice')->each(function($node) use (&$price){
-            $price = trim($node->text()) ? trim($node->text()) : $price;
+            $price = substr(trim($node->text()), 0, 20);
         });
 
         $seller = '';
         $crawler->filter('#bylineInfo')->each(function($node) use (&$seller){
-            $seller = trim($node->text());
+            $seller = substr(trim($node->text()), 0, 75);
         });
 
         $pic = '';
@@ -88,7 +91,8 @@ class ItchController extends Controller
         return response()->json(['response' => 'ok']);
     }
 
-    public function hide($id) {
+    public function hide($id)
+    {
        return response()->json(['response' => 'To be implemented']);
     }
 }
