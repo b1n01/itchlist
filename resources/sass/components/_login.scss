@@ -7,15 +7,13 @@
 
 .login-box {
     background-color: white;
-    padding: 40px 20px;
-    border-radius: 5px;
-    min-width: 280px;
-    width: 50%;
-    max-width: 550px;
+    padding: 0 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100vh;
+    width: 100%;
 }
 
 .login-discaimer {
@@ -46,4 +44,15 @@
 
 .fb-login-label {
     margin: 0 12px;
+}
+
+@media only screen and (min-width: $breakDesktop) {
+    .login-box {
+        padding: 40px 20px;
+        border-radius: 5px;
+        min-width: 280px;
+        max-width: 550px;
+        height: auto;
+        width: 50%;
+    }
 }
