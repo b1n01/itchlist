@@ -158,7 +158,7 @@ window.onload = function ()
     });
 
     // Delete account
-    $('#account-delete').on('click touch', function () {
+    $('#account-delete').on('click touchstart', function () {
         var button = $('#account-delete')
         var input = $('#account-delete-input')
         var label = $('#account-delete-label')
