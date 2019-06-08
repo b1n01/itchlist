@@ -1,4 +1,4 @@
-.policy {
+.policy, .about {
     color: $baseDarker;
     font-size: 16px;
     margin: 30px;
@@ -16,6 +16,7 @@
         font-size: 24px;
         margin: 24px 0;
         font-weight: bold;
+        line-height: 28px;
     }
 
     h3 {
@@ -36,9 +37,10 @@
 }
 
 @media only screen and (min-width: 980px) {
-    .policy {
+    .policy, .about {
         width: auto;
         max-width: 920px;
         margin: 30px auto;
+        text-align: initial;
     }
 }
