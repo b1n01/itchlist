@@ -141,4 +141,21 @@ window.onload = function ()
             })
         }
     })
+
+    // Cookieconsent
+    window.cookieconsent.initialise({
+        "palette": {
+            "popup": {
+              "background": "#f26242",
+              "text": "#ffffff"
+            },
+            "button": {
+              "background": "#ffffff",
+              "text": "#f26242"
+            }
+        },
+        "theme": "edgeless"
+    });
+
+
 }
