@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class FacebookController extends Controller
 {
@@ -33,7 +34,12 @@ class FacebookController extends Controller
         $friends = [];
         foreach ($friendsGraphEdge as $friendsGraphNode) {
 
+            Log::debug('Graph Node: ' . $friendsGraphNode);
+
             $localUser = User::where('provider_user_id', $friendsGraphNode->getField('id'))->first();
+
+            Log::debug('Local user id: ' . $localUser);
+
             if($localUser) {
                 $friends[] = [
                     'name' => $friendsGraphNode->getField('name'),
