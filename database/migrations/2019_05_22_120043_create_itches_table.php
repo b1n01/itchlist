@@ -15,7 +15,7 @@ class CreateItchesTable extends Migration
     {
         Schema::create('itches', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('url');
+            $table->longText('url');
             $table->longText('pic');
             $table->string('description');
             $table->string('price');
