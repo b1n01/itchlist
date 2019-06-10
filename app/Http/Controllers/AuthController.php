@@ -18,7 +18,7 @@ class AuthController extends Controller
      */
     public function login()
     {
-        return Socialite::driver('facebook')->redirect();
+        return Socialite::driver('facebook')->scopes(['user_friends'])->redirect();
     }
 
     /**
