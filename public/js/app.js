@@ -103,10 +103,10 @@ window.onload = function () {
         document.location.href = error.response.data.action;
       }
 
-      return error;
+      return Promise.reject(error);
     }
 
-    return error;
+    return Promise.reject(error);
   }); // Handle dropdown
 
   $('#profile-hook').click(function () {

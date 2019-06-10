@@ -8,9 +8,9 @@ window.onload = function ()
             if (error.response.data.action) {
                 document.location.href = error.response.data.action;
             }
-            return error
+            return Promise.reject(error);
         }
-        return error
+        return Promise.reject(error);
     });
 
     // Handle dropdown
