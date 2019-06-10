@@ -5,10 +5,12 @@ window.onload = function ()
         return response;
     }, function (error) {
         if(error.response.status == 401 ) {
-            if  (error.response.data.action) {
+            if (error.response.data.action) {
                 document.location.href = error.response.data.action;
-            } 
+            }
+            return error
         }
+        return error
     });
 
     // Handle dropdown

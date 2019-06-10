@@ -102,7 +102,11 @@ window.onload = function () {
       if (error.response.data.action) {
         document.location.href = error.response.data.action;
       }
+
+      return error;
     }
+
+    return error;
   }); // Handle dropdown
 
   $('#profile-hook').click(function () {
