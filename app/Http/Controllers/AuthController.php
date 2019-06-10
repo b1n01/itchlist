@@ -36,14 +36,15 @@ class AuthController extends Controller
             $user = new User();
             $user->provider = 'facebook';
             $user->provider_user_id = $fbUser->id;
-            $user->provider_user_token = $fbUser->token;
             $user->name = $fbUser->name;
             $user->pic = $fbUser->avatar;
             $user->uuid = bin2hex(random_bytes(8));
-            $user->save();
         }
 
-        auth()->login($user);  
+        $user->provider_user_token = $fbUser->token;
+        $user->save();
+
+        auth()->login($user);
 
         return redirect('/');    
     }
