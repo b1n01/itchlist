@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Facebook\Exceptions\FacebookSDKException;
+use Facebook\Exceptions\FacebookResponseException;
 
 class FacebookController extends Controller
 {
@@ -23,10 +25,8 @@ class FacebookController extends Controller
                 "/me/friends?fields=name,picture",
                 $user->provider_user_token
             );
-        } catch(FacebookExceptionsFacebookResponseException $e) {
-            return response()->json(['message' => 'erroe contactin Facebook'], 500);
-        } catch(FacebookExceptionsFacebookSDKException $e) {
-            return response()->json(['message' => 'erroe contactin Facebook'], 500);
+        } catch(FacebookResponseException $e) {
+            return self::handleFacebookException($e);
         }
 
         $friendsGraphEdge = $friendsResponse->getGraphEdge();
@@ -50,5 +50,24 @@ class FacebookController extends Controller
         }
 
         return response()->json($friends);
+    }
+
+    /**
+     * @see https://developers.facebook.com/docs/facebook-login/access-tokens/debugging-and-error-handling
+     */
+    public static function handleFacebookException($e)
+    {
+        switch ($e->getCode()) {
+            case 190:
+                $body = ['message' => 'Facebook Unauthorized', 'action' => route('login.form')];
+                $code = 401;
+                break;
+            default:
+                $body = ['message' => 'Error contactin Facebook'];
+                $code = 500;
+                break;
+        }
+
+        return response()->json($body, $code);
     }
 }

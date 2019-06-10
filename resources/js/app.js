@@ -1,5 +1,16 @@
 window.onload = function () 
 {
+    // Config axios
+    axios.interceptors.response.use(function (response) {
+        return response;
+    }, function (error) {
+        if(error.response.status == 401 ) {
+            if  (error.response.data.action) {
+                document.location.href = error.response.data.action;
+            } 
+        }
+    });
+
     // Handle dropdown
     $('#profile-hook').click(function() {
         $('#profile-dropdown').toggle()
@@ -70,7 +81,7 @@ window.onload = function ()
                     renderFriends(friends, $("#searchbox-input").val())
                 })
                 .catch(function (error) {
-                    console.log(error)
+                    //console.log(error) //handeld by default axios config
                 });
         }, 500)
     })

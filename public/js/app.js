@@ -94,7 +94,17 @@
 /***/ (function(module, exports) {
 
 window.onload = function () {
-  // Handle dropdown
+  // Config axios
+  axios.interceptors.response.use(function (response) {
+    return response;
+  }, function (error) {
+    if (error.response.status == 401) {
+      if (error.response.data.action) {
+        document.location.href = error.response.data.action;
+      }
+    }
+  }); // Handle dropdown
+
   $('#profile-hook').click(function () {
     $('#profile-dropdown').toggle();
   }); // Render friends list
@@ -158,8 +168,7 @@ window.onload = function () {
       axios.get('/api/friends').then(function (response) {
         var friends = response.data;
         renderFriends(friends, $("#searchbox-input").val());
-      })["catch"](function (error) {
-        console.log(error);
+      })["catch"](function (error) {//console.log(error) //handeld by default axios config
       });
     }, 500);
   }); // Item actions
@@ -245,7 +254,7 @@ window.onload = function () {
     "theme": "edgeless"
   }); // Delete account
 
-  $('#account-delete').on('click touch', function () {
+  $('#account-delete').on('click touchstart', function () {
     var button = $('#account-delete');
     var input = $('#account-delete-input');
     var label = $('#account-delete-label');

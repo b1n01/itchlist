@@ -22,11 +22,6 @@ class ListController extends Controller
 
     public function friendList($uuid)
     {
-        // TODO hide User facebook credentials
-
-        // TODO if I'am logged and the uuid user is my friend i should be able to interact with the
-        // list items 
-        
         // If no user found from uii -> erroe
         $friend = User::where('uuid', $uuid)->first();
         if(!$friend) {
@@ -58,10 +53,14 @@ class ListController extends Controller
             'default_graph_version' => 'v3.3',
         ]);
 
-        $friendsResponse = $fb->get(
-            "/me/friends/".$friend->provider_user_id,
-            $user->provider_user_token
-        );
+        try {
+            $friendsResponse = $fb->get(
+                "/me/friends/".$friend->provider_user_id,
+                $user->provider_user_token
+            );
+        } catch(FacebookResponseException $e) {
+            return FacebookController::handleFacebookException($e);
+        }
 
         $friendsGraphEdge = $friendsResponse->getGraphEdge();
 
