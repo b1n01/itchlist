@@ -13,6 +13,7 @@
     <section class="feed">
 
         @if(Auth::check())
+
             <p id="feed-heading" class="feed-heading">
                 Your itchlist&nbsp;|&nbsp;
                 <span id="feed-add">
@@ -36,29 +37,39 @@
                 <button id="list-add-button" class="list-add-button">Save</button>
             </div>
         @else
-            <p class="feed-heading">Recently added</p>
+            @if(count($itches))
+                <p class="feed-heading">Recently added</p>
+            @endif
         @endif
 
-        <div class="feed-items">
-            @foreach ($itches as $itch)
-           
-                <div class="feed-item">
-                    <img class="feed-pic" src="{{ $itch->pic ?: asset('images/loading-preview.svg')}}">
-                    <p class="feed-price">{{ $itch->price ?: ''}}</p>
-                    <p class="feed-description">{{ $itch->description ?: $itch->url }}</p>
-                    <div class="feed-overlay">
-                        <div class=feed-actions>
-                            @if(Auth::check())
-                                <!--<button class="feed-action feed-hide" data-id="{{ $itch->id }}">Hide</button>-->
-                                <button class="feed-action feed-delete" data-id="{{ $itch->id }}">Delete</button>
-                            @endif
-                            <a class="feed-action" href="{{ $itch->url }}" target="_blank">Go to Amazon</a>
+        @if(count($itches))
+            <div class="feed-items">
+                @foreach ($itches as $itch)
+                    <div class="feed-item">
+                        <img class="feed-pic" src="{{ $itch->pic ?: asset('images/loading-preview.svg')}}">
+                        <p class="feed-price">{{ $itch->price ?: ''}}</p>
+                        <p class="feed-description">{{ $itch->description ?: $itch->url }}</p>
+                        <div class="feed-overlay">
+                            <div class=feed-actions>
+                                @if(Auth::check())
+                                    <!--<button class="feed-action feed-hide" data-id="{{ $itch->id }}">Hide</button>-->
+                                    <button class="feed-action feed-delete" data-id="{{ $itch->id }}">Delete</button>
+                                @endif
+                                <a class="feed-action" href="{{ $itch->url }}" target="_blank">Go to Amazon</a>
+                            </div>
                         </div>
                     </div>
+                @endforeach
+            </div>   
+        @else
+            @if(Auth::check())
+                <div class="feed-empty">
+                    <p>Hi! Looks like you are new here</p>
+                    <p>Use '+ ADD' to add items to your list</p>
                 </div>
+            @endif
+        @endif
 
-            @endforeach
-        </div>
     </section>
 
 @endsection
