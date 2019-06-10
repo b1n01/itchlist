@@ -42,14 +42,16 @@ Il primo vincolo ci permette di facilitare la ricerca nella piattaforma: puoi ce
 - Aggiungere delete degli item
 - 'join' dovrebbe avvisarti che stai loggando con facebook
 - aggiungere un overlay agli item se non sei loggato
+- add coockie consense
+- aggungi footer con terms & condition
+- favicon
+- limit homepage items
+- all'accesso se nessun oggetto è stato inserito agginuti un testo con delle istruzioni 
+- handle facebook auth exceptions
 
 ## TODO
 - Mostrate il popup con sdk javascript di facebook per inviate amici
-- limit homepage items
 - funzionalità 'book'
-- favicon
-- aggungi footer con terms & condition
-- add coockie consense
 
 ## WARNING
 - Sempre installare sudo apt-get install php7.2-curl altrimenti facebook graph-sdk cerca di utilizzare guzzle 5
