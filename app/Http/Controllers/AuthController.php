@@ -18,7 +18,10 @@ class AuthController extends Controller
      */
     public function login()
     {
-        return Socialite::driver('facebook')->scopes(['user_friends'])->redirect();
+        return Socialite::driver('facebook')
+            ->with(['auth_type' => 'rerequest']) // reask for permission if removed
+            ->scopes(['user_friends']) // ask for friends list permissin
+            ->redirect();
     }
 
     /**
