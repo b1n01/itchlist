@@ -1,0 +1,1 @@
+UPDATE itches SET url = '', pic = '', description = '', price = '' where id = XX;
