@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Itch;
+use App\Services\Friendship;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Goutte\Client as Guotte;
@@ -88,7 +89,7 @@ class ItchController extends Controller
      * Book an Itch for a friend
      * @param  integer $id Itch's id
      */
-    public function book($id)
+    public function book($id, Friendship $friendship)
     {
         $user = auth()->user();
 
@@ -106,7 +107,7 @@ class ItchController extends Controller
         }
 
         $friend = User::find($itch->user_id);
-        $areFriend = ListController::areFriends($user, $friend); // TODO this should be in a service
+        $areFriend = $friendship->areFriends($user, $friend);
         if(!$areFriend) {
             return response()->json(['response' => 'You can only book for your friends'], 401);
         }
