@@ -68,6 +68,10 @@ class ItchController extends Controller
         return response()->json(['response' => 'ok']);
     }
 
+    /**
+     * Delete an Itch
+     * @param  integer $id Itch's id
+     */
     public function delete($id)
     {
         $itch = Itch::find($id);
@@ -113,8 +117,25 @@ class ItchController extends Controller
         return response()->json(['response' => 'ok']);
     }
 
-    public function hide($id)
+    /**
+     * Toggle Itches visibility
+     * @param  integer $id Itch's id
+     */
+    public function toggle($id)
     {
-       return response()->json(['response' => 'To be implemented']);
+        $itch = Itch::find($id);
+        if(!$itch) {
+            return response()->json(['response' => 'Itch not found'], 404);
+        } 
+       
+        $user = auth()->user();
+        if($itch->user_id != $user->id) {
+            return response()->json(['response' => 'You can only toggle your Itches'], 401);
+        }
+
+        $itch->hidden = !$itch->hidden;
+        $itch->save();
+
+        return response()->json(['response' => 'ok']);
     }
 }

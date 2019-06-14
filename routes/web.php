@@ -27,7 +27,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/api/itch', 'ItchController@add')->name('itch.add');
     Route::delete('/api/itch/{id}', 'ItchController@delete')->name('itch.delete');
     Route::post('/api/itch/{id}/book', 'ItchController@book')->name('itch.book');
-    Route::post('/api/itch/{id}/hide', 'ItchController@hide')->name('itch.hide');
+    Route::post('/api/itch/{id}/toggle', 'ItchController@toggle')->name('itch.toggle');
     
     // Friends
     Route::get('/api/friends', 'FriendsController@friends')->name('friends');
