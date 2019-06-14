@@ -8,8 +8,14 @@ use Illuminate\Support\Facades\Log;
 use Facebook\Exceptions\FacebookSDKException;
 use Facebook\Exceptions\FacebookResponseException;
 
-class FacebookController extends Controller
+/**
+ * Handles facebook friends
+ */
+class FriendsController extends Controller
 {
+    /**
+     * Get list of friends from facebook
+     */
     public function friends()
     {
         $fb = new \Facebook\Facebook([
@@ -34,11 +40,7 @@ class FacebookController extends Controller
         $friends = [];
         foreach ($friendsGraphEdge as $friendsGraphNode) {
 
-            Log::debug('Graph Node: ' . $friendsGraphNode);
-
             $localUser = User::where('provider_user_id', $friendsGraphNode->getField('id'))->first();
-
-            Log::debug('Local user id: ' . $localUser);
 
             if($localUser) {
                 $friends[] = [

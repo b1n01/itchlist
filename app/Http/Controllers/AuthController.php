@@ -6,21 +6,27 @@ use App\User;
 use Socialite;
 use Illuminate\Http\Request;
 
+/**
+ * Handles user authentication
+ */
 class AuthController extends Controller
 {
+    /**
+     * Render login form
+     */
     public function loginForm() 
     {
         return view('login');
     }
 
     /**
-     * Redirect to login facebook api.
+     * Redirect to facebook login
      */
     public function login()
     {
         return Socialite::driver('facebook')
             ->with(['auth_type' => 'rerequest']) // reask for permission if removed
-            ->scopes(['user_friends']) // ask for friends list permissin
+            ->scopes(['user_friends']) // ask for 'friends list' permissin
             ->redirect();
     }
 
@@ -31,6 +37,8 @@ class AuthController extends Controller
     {
         $fbUser = Socialite::driver('facebook')->user();
 
+        // TODO what if the user did not accept facebook login?
+        
         $user = User::where('provider', 'facebook')
             ->where('provider_user_id', $fbUser->id)
             ->first();
@@ -49,7 +57,7 @@ class AuthController extends Controller
 
         auth()->login($user);
 
-        return redirect('/');    
+        return redirect(route('list'));
     }
 
     /**
@@ -57,7 +65,10 @@ class AuthController extends Controller
      */
     public function logout()
     {
+        // TODO also logout from facebook?
+        
         $user = auth()->logout();
-        return redirect('/');
+
+        return redirect(route('list'));
     }
 }

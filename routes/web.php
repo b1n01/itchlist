@@ -30,7 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/api/itch/{id}/hide', 'ItchController@hide')->name('itch.hide');
     
     // Friends
-    Route::get('/api/friends', 'FacebookController@friends')->name('friends');
+    Route::get('/api/friends', 'FriendsController@friends')->name('friends');
 
     // Account
     Route::get('/me/account', 'AccountController@account')->name('account');
