@@ -13,7 +13,7 @@
 
 // Lists
 Route::get('/', 'ListController@list')->name('list');
-Route::get('/{uuid}', 'ListController@friendList')->name('friend.list');
+Route::get('/{uuid}', 'ListController@userList')->name('user.list');
 
 // Auth
 Route::get('/auth/join', 'AuthController@loginForm')->name('login.form');
@@ -27,7 +27,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/api/itch', 'ItchController@add')->name('itch.add');
     Route::delete('/api/itch/{id}', 'ItchController@delete')->name('itch.delete');
     Route::post('/api/itch/{id}/book', 'ItchController@book')->name('itch.book');
-    Route::post('/api/itch/{id}/toggle', 'ItchController@toggle')->name('itch.toggle');
+    Route::post('/api/itch/{id}/unbook', 'ItchController@unbook')->name('itch.unbook');
+    Route::post('/api/itch/{id}/show', 'ItchController@toggle')->name('itch.show');
+    Route::post('/api/itch/{id}/hide', 'ItchController@toggle')->name('itch.hide');
     
     // Friends
     Route::get('/api/friends', 'FriendsController@friends')->name('friends');

@@ -48,6 +48,28 @@
     transition: opacity .5s ease-out;
 }
 
+.feed-booked-by {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 12px;
+    text-align: right;
+    padding: 8px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.feed-booked-by-pic {
+    width: 26px;
+    border-radius: 50%;
+    margin: 0 0 0 8px;
+}
+
+.feed-item.hidden {
+    opacity: 0.5;
+}
+
 .feed-overlay {
     height: 100%;
     width: 100%;

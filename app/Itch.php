@@ -12,7 +12,7 @@ class Itch extends Model
      * @var array
      */
     protected $fillable = [
-        'pic', 'description', 'price', 'seller', 'user_id', 'provider',
+        'pic', 'description', 'price', 'seller', 'user_id', 'booked_by', 'provider',
     ];
 
     protected $hidden = [];
@@ -30,6 +30,6 @@ class Itch extends Model
      */
     public function bookedBy()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'booked_by');
     }
 }

@@ -1,17 +1,19 @@
 window.onload = function () 
 {
+    const clickEvent =  'touchstart' in document.documentElement ? 'touchstart' : 'click';
+    
     // Config axios
     axios.interceptors.response.use(function (response) {
-        return response;
+        return response
     }, function (error) {
         if(error.response.status == 401 ) {
             if (error.response.data.action) {
-                document.location.href = error.response.data.action;
+                document.location.href = error.response.data.action
             }
-            return Promise.reject(error);
+            return Promise.reject(error)
         }
-        return Promise.reject(error);
-    });
+        return Promise.reject(error)
+    })
 
     // Handle dropdown
     $('#profile-hook').click(function() {
@@ -20,9 +22,9 @@ window.onload = function ()
 
     // Render friends list
     friendsTemplate = function(friend) {
-        var html = '';
+        var html = ''
         html += '<li>'
-        html += '<a class="friend" href="' + '/' + friend.uuid +'">';
+        html += '<a class="friend" href="' + '/' + friend.uuid +'">'
         html += '<img class="friend-pic" src=' + friend.pic + '>'
         html += '<span class="friend-name">' + friend.name + '</span>'
         html += '</a>'
@@ -35,13 +37,13 @@ window.onload = function ()
             return friend.name.toLowerCase().includes(search.toLowerCase())
         })
 
-        let friendsHtml = '';
+        let friendsHtml = ''
         filteredFriends.forEach(function(friend) {
             friendsHtml += friendsTemplate(friend)
         })
 
         if(friendsHtml == ''){
-            friendsHtml = '<li class="friend"><span class="friend-name">No results found</span></li>';
+            friendsHtml = '<li class="friend"><span class="friend-name">No results found</span></li>'
         }
         $('#frieds').html(friendsHtml)
     }
@@ -50,7 +52,7 @@ window.onload = function ()
         setTimeout(function() {
             $('#frieds').css('display', 'none')
             $("#searchbox-input").val('')
-        }, 150);
+        }, 150)
     })
 
     $("#searchbox-icon").on('click', function() {
@@ -67,10 +69,10 @@ window.onload = function ()
             $('#searchbox-input').css('width', '155px')    
             $('.menu-logo-wrapper').css('display', 'initial')
         }
-    });
+    })
 
     // Handle searchbox
-    let searchTimeout = null;
+    let searchTimeout = null
     $("#searchbox-input").on("keyup", function() {
         clearTimeout(searchTimeout)
         $('#frieds').css('display', 'initial')
@@ -84,7 +86,7 @@ window.onload = function ()
                 })
                 .catch(function (error) {
                     //console.log(error) //handeld by default axios config
-                });
+                })
         }, 500)
     })
 
@@ -92,7 +94,7 @@ window.onload = function ()
     $('.feed-delete').click(function(e) {
         var confirmed = $(e.target).attr('data-confirm')
         if(confirmed == 'true') {
-            $(this).html('<i class="fas fa-circle-notch fa-spin"></i>');
+            $(this).html('<i class="fas fa-circle-notch fa-spin"></i>')
             var id = $(e.target).attr('data-id')
             axios.delete('api/itch/' + id)
                 .then(function() {
@@ -101,10 +103,10 @@ window.onload = function ()
                     setTimeout(() => { item.remove() }, 500)               
             })
         } else {
-            $(this).text('Click again to delete');
+            $(this).text('Click again to delete')
             $(e.target).attr('data-confirm', true)
             setTimeout(() => { 
-                $(this).text('Delete');
+                $(this).text('Delete')
                 $(e.target).attr('data-confirm', false)
             }, 2000)    
         }
@@ -115,11 +117,11 @@ window.onload = function ()
 
         // copy link to clipboard
         var url = $('#share-list').attr('data-share')
-        var $temp = $("<input>");
-        $("body").append($temp);
-        $temp.val(url).select();
-        document.execCommand("copy");
-        $temp.remove();
+        var $temp = $("<input>")
+        $("body").append($temp)
+        $temp.val(url).select()
+        document.execCommand("copy")
+        $temp.remove()
 
         // Show copied confirmation
         $('#feed-heading').css('display', 'none')
@@ -140,13 +142,13 @@ window.onload = function ()
         var url = $('#list-add-input').val()
 
         if(url) {
-            $(this).html(' <i class="fas fa-circle-notch fa-spin"> </i> ');
+            $(this).html(' <i class="fas fa-circle-notch fa-spin"> </i> ')
             axios.post('api/itch', {
                 'provider-url': url
             }).then(function(response) {
                 location.reload()
             }).catch((response) => {
-                $(this).html('Invalid url');
+                $(this).html('Invalid url')
                 setTimeout(() => { 
                     $(this).html('Save')
                     $('#list-add-input').val('')
@@ -168,10 +170,10 @@ window.onload = function ()
             }
         },
         "theme": "edgeless"
-    });
+    })
 
     // Delete account
-    $('#account-delete').on('click touchstart', function () {
+    $('#account-delete').on('clickEvent', function () {
         var button = $('#account-delete')
         var input = $('#account-delete-input')
         var label = $('#account-delete-label')
@@ -183,7 +185,7 @@ window.onload = function ()
             label.css('display', 'inline')
         } else {
             if(button.attr('data-confirm') == 'true') {
-                button.html('Deleting <i class="fas fa-circle-notch fa-spin"></i>');
+                button.html('Deleting <i class="fas fa-circle-notch fa-spin"></i>')
                 axios.delete('/api/me/account').then(function() { document.location.href = '/'})
             } else {
                 button.text('Click again to delete')
@@ -191,5 +193,29 @@ window.onload = function ()
                 label.css('display', 'none')
             }
         }
-    });
+    })
+
+    // Book an Itch
+    $('.feed-book').on(clickEvent, function (e) {
+        var itchId = $(e.currentTarget).attr('data-id')
+        axios.post('/api/itch/' + itchId + '/book').then(function (response) { location.reload() })
+    }) 
+
+    // Unbook an Itch
+    $('.feed-unbook').on(clickEvent, function (e) {
+        var itchId = $(e.currentTarget).attr('data-id')
+        axios.post('/api/itch/' + itchId + '/unbook').then(function (response) { location.reload() })
+    }) 
+
+    // Hide an Itch
+    $('.feed-hide').on(clickEvent, function (e) {
+        var itchId = $(e.currentTarget).attr('data-id')
+        axios.post('/api/itch/' + itchId + '/hide').then(function (response) { location.reload() })
+    }) 
+
+    // Show an Itch
+    $('.feed-show').on(clickEvent, function (e) {
+        var itchId = $(e.currentTarget).attr('data-id')
+        axios.post('/api/itch/' + itchId + '/show').then(function (response) { location.reload() })
+    }) 
 }

@@ -94,7 +94,8 @@
 /***/ (function(module, exports) {
 
 window.onload = function () {
-  // Config axios
+  var clickEvent = 'touchstart' in document.documentElement ? 'touchstart' : 'click'; // Config axios
+
   axios.interceptors.response.use(function (response) {
     return response;
   }, function (error) {
@@ -258,7 +259,7 @@ window.onload = function () {
     "theme": "edgeless"
   }); // Delete account
 
-  $('#account-delete').on('click touchstart', function () {
+  $('#account-delete').on('clickEvent', function () {
     var button = $('#account-delete');
     var input = $('#account-delete-input');
     var label = $('#account-delete-label');
@@ -279,6 +280,34 @@ window.onload = function () {
         label.css('display', 'none');
       }
     }
+  }); // Book an Itch
+
+  $('.feed-book').on(clickEvent, function (e) {
+    var itchId = $(e.currentTarget).attr('data-id');
+    axios.post('/api/itch/' + itchId + '/book').then(function (response) {
+      location.reload();
+    });
+  }); // Unbook an Itch
+
+  $('.feed-unbook').on(clickEvent, function (e) {
+    var itchId = $(e.currentTarget).attr('data-id');
+    axios.post('/api/itch/' + itchId + '/unbook').then(function (response) {
+      location.reload();
+    });
+  }); // Hide an Itch
+
+  $('.feed-hide').on(clickEvent, function (e) {
+    var itchId = $(e.currentTarget).attr('data-id');
+    axios.post('/api/itch/' + itchId + '/hide').then(function (response) {
+      location.reload();
+    });
+  }); // Show an Itch
+
+  $('.feed-show').on(clickEvent, function (e) {
+    var itchId = $(e.currentTarget).attr('data-id');
+    axios.post('/api/itch/' + itchId + '/show').then(function (response) {
+      location.reload();
+    });
   });
 };
 

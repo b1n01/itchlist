@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Itch;
+use App\User;
 use App\Services\Friendship;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -87,20 +88,20 @@ class ItchController extends Controller
 
     /**
      * Book an Itch for a friend
-     * @param  integer $id Itch's id
+     * @param integer Itch's id
      */
     public function book($id, Friendship $friendship)
     {
         $user = auth()->user();
-
         $itch = Itch::find($id);
+
         if(!$itch) {
             return response()->json(['response' => 'Itch not found'], 404);
         } 
 
         if($itch->booked_by) {
-            return response()->json(['response' => 'Itch already booked'], 401);                
-        }
+            return response()->json(['response' => 'Itch already booked'], 401);
+        } 
 
         if($itch->user_id == $user->id) {
             return response()->json(['response' => 'You cannot book your Itches'], 401);
@@ -112,15 +113,43 @@ class ItchController extends Controller
             return response()->json(['response' => 'You can only book for your friends'], 401);
         }
 
-        $itch->booked_by = $user;
+        $itch->booked_by = $user->id;
         $itch->save();
 
         return response()->json(['response' => 'ok']);
     }
 
     /**
+     * Unbook an Itch
+     * @param integer Itch's id
+     */
+    public function unbook($id)
+    {
+        $user = auth()->user();
+        $itch = Itch::find($id);
+
+        if(!$itch) {
+            return response()->json(['response' => 'Itch not found'], 404);
+        } 
+
+        if(!$itch->booked_by) {
+            return response()->json(['response' => 'Itch not booked'], 401);
+        } 
+
+        if($itch->booked_by != $user->id) {
+            return response()->json(['response' => 'Booked by someone else'], 401);
+        }
+
+        $itch->booked_by = null;
+        $itch->save();
+
+        return response()->json(['response' => 'ok']);
+    }
+
+
+    /**
      * Toggle Itches visibility
-     * @param  integer $id Itch's id
+     * @param integer $id Itch's id
      */
     public function toggle($id)
     {
@@ -134,7 +163,7 @@ class ItchController extends Controller
             return response()->json(['response' => 'You can only toggle your Itches'], 401);
         }
 
-        $itch->hidden = !$itch->hidden;
+        $itch->hidden = $itch->hidden == true ? false : true;
         $itch->save();
 
         return response()->json(['response' => 'ok']);

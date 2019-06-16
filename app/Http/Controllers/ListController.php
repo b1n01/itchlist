@@ -21,7 +21,7 @@ class ListController extends Controller
         if($user) {
             $itches = Itch::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
         } else {
-            $itches = Itch::orderBy('created_at', 'desc')->limit(15)->get();
+            $itches = Itch::where('hidden', false)->orderBy('created_at', 'desc')->limit(15)->get();
         }
 
         return view('home', ['itches' => $itches]);                   
@@ -31,7 +31,7 @@ class ListController extends Controller
      * Get a user list
      * @param  integer $uuid The user uuid
      */
-    public function friendList($uuid, Friendship $friendship)
+    public function userList($uuid, Friendship $friendship)
     {
         // If no user found from uii -> error
         $otherUser = User::where('uuid', $uuid)->first();
@@ -39,9 +39,6 @@ class ListController extends Controller
             return redirect(route('list'));
         }
         
-        $itches = Itch::where('user_id', $otherUser->id)->orderBy('created_at', 'desc')->get();
-        $user = auth()->user();
-
         // If the user is not logged in
         $user = auth()->user();
         $areFriends = false;
@@ -49,7 +46,11 @@ class ListController extends Controller
             $areFriends = $friendship->areFriends($user, $otherUser);
         }
 
-        $itches = Itch::where('user_id', $otherUser->id)->orderBy('created_at', 'desc')->get();
+        $itches = Itch::where('user_id', $otherUser->id)
+            ->where('hidden', false)
+            ->orderBy('created_at', 'desc')
+            ->with('bookedBy')
+            ->get();
 
         return view('list', ['user' => $otherUser, 'itches' => $itches, 'areFriends' => $areFriends]);
     }
