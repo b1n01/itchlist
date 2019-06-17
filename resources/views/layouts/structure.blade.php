@@ -38,6 +38,12 @@
     @yield('head')
 </head>
 <body>
+    <!-- load facebook sdk -->
+    <script>
+        window.fbAsyncInit = function() { FB.init({appId: '2288050971522038', autoLogAppEvents: true, xfbml: true, version: 'v3.3' }); };
+    </script>
+    <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+
     <div id="app">
         @yield('page')  
     </div>
