@@ -21,7 +21,7 @@
                     <div class="feed-overlay">
                         <div class=feed-actions>
 
-                            @if($itch->booked_by == Auth::user()->id)
+                            @if(Auth::check() && $itch->booked_by == Auth::user()->id)
                                 <button class="feed-action feed-unbook" data-id="{{ $itch->id }}">Unbook</button>
                             @elseif($itch->booked_by)
                                 <span 
