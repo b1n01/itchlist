@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('head')
+<meta property="og:url" content="{{ route('user.list', $user->uuid) }}" />
+@endsection
+
 @section('content')
     
     <section class="feed">

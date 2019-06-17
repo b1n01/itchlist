@@ -30,6 +30,12 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
 
+    <!-- Open Graph -->
+    <meta property="fb:app_id" content="{{ config('services.facebook.client_id') }}" />
+    <meta property="og:description" content="Ithclist: a better wishlist" />
+    <meta property="og:image" content="{{ asset('images/logo.svg') }}" />
+
+    @yield('head')
 </head>
 <body>
     <div id="app">
