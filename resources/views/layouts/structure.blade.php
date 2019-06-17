@@ -32,10 +32,14 @@
 
     <!-- Open Graph -->
     <meta property="fb:app_id" content="{{ config('services.facebook.client_id') }}" />
-    <meta property="og:description" content="Ithclist: a better wishlist" />
-    <meta property="og:image" content="{{ asset('images/logo.svg') }}" />
+    <meta property="og:image" content="{{ asset('images/og-images.png') }}" />
+    <meta property="og:title" content="Ithclist: a better wishlist" />
+    <meta property="og:description" content="It's a platform that aims to ease the 'what can we gift?' problem. Just add your 'itches' to your list an share it with your dears/friends" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
 
     @yield('head')
+
 </head>
 <body>
     <!-- load facebook sdk -->
