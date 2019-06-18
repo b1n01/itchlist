@@ -43,7 +43,8 @@ window.onload = function ()
         })
 
         if(friendsHtml == ''){
-            friendsHtml = '<li class="friend"><span class="friend-name">No results found</span></li>'
+            var inviteFriends = '<li class="friend"><a href="' + sendDialogEndpoint + '" class="friend-name">Not found, click to invite</span></li>';
+            friendsHtml = inviteFriends; // injected via php
         }
         $('#friends').html(friendsHtml)
     }
@@ -81,11 +82,7 @@ window.onload = function ()
         searchTimeout = setTimeout(function() {
             axios.get('/api/friends')
                 .then(function (response) {
-                    let friends = response.data
-                    renderFriends(friends, $("#searchbox-input").val())
-                })
-                .catch(function (error) {
-                    //console.log(error) //handeld by default axios config
+                    renderFriends(response.data, $("#searchbox-input").val())
                 })
         }, 500)
     })

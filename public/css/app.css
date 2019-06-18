@@ -526,6 +526,7 @@ a:active {
 .friend-name {
   line-height: 60px;
   margin-left: 10px;
+  color: black;
 }
 
 .searchbox-input::-webkit-input-placeholder {
