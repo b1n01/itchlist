@@ -45,12 +45,12 @@ window.onload = function ()
         if(friendsHtml == ''){
             friendsHtml = '<li class="friend"><span class="friend-name">No results found</span></li>'
         }
-        $('#frieds').html(friendsHtml)
+        $('#friends').html(friendsHtml)
     }
 
     $("#searchbox").on('focusout', function() {
         setTimeout(function() {
-            $('#frieds').css('display', 'none')
+            $('#friends').css('display', 'none')
             $("#searchbox-input").val('')
         }, 150)
     })
@@ -75,8 +75,8 @@ window.onload = function ()
     let searchTimeout = null
     $("#searchbox-input").on("keyup", function() {
         clearTimeout(searchTimeout)
-        $('#frieds').css('display', 'initial')
-        $('#frieds').html('<li class="friend"><span class="friend-name">Searching...</span></li>')
+        $('#friends').css('display', 'initial')
+        $('#friends').html('<li class="friend"><span class="friend-name">Searching...</span></li>')
 
         searchTimeout = setTimeout(function() {
             axios.get('/api/friends')

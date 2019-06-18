@@ -31,7 +31,7 @@
         <input id="searchbox-input" class="searchbox-input" type="input" name="searches" placeholder="Search your friends">
         <i id="searchbox-icon" class="fas fa-search searchbox-icon"></i>
          <!--<i class="fas fa-user-friends searchbox-icon"></i>-->
-        <ul class="friends" id="frieds"></ul>
+        <ul class="friends" id="friends"></ul>
     </div>
     @endif
         <img id="profile-hook" src="{{ Auth::user()->pic }}" class="profile-pic">
