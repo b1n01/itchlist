@@ -51,10 +51,12 @@
             "&redirect_uri={{ route('list') }}";
     </script>
 
+    <!-- Sentry -->
+    <script src="https://browser.sentry-cdn.com/5.4.2/bundle.min.js" crossorigin="anonymous"></script>
+
     @yield('head')
 </head>
 <body>
-    
 
     <div id="app">
         @yield('page')  

@@ -1,7 +1,12 @@
 window.onload = function () 
 {
     const clickEvent =  'touchstart' in document.documentElement ? 'touchstart' : 'click';
-    
+ 
+    // Init Sentry
+    if(window.location.hostname.includes('itchlist.me')) {
+        Sentry.init({ dsn: 'https://5db4b6559c4048a6bb6128db62e0f8db@sentry.io/1487573' });
+    }
+
     // Config axios
     axios.interceptors.response.use(function (response) {
         return response
