@@ -2,8 +2,6 @@ window.onload = function ()
 {
     const clickEvent =  'touchstart' in document.documentElement ? 'touchstart' : 'click';
  
-    // Init Sentry
-
     // Config axios
     axios.interceptors.response.use(function (response) {
         return response
