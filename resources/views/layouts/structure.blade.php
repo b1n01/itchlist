@@ -54,6 +54,17 @@
     <!-- Sentry -->
     <script src="https://browser.sentry-cdn.com/5.4.2/bundle.min.js" crossorigin="anonymous"></script>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142533789-1"></script>
+    <script>
+        if(window.location.hostname.includes('itchlist.me')) {
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'UA-142533789-1');
+          }
+    </script>
+
     @yield('head')
 </head>
 <body>
