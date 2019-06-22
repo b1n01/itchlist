@@ -53,6 +53,11 @@
 
     <!-- Sentry -->
     <script src="https://browser.sentry-cdn.com/5.4.2/bundle.min.js" crossorigin="anonymous"></script>
+    <script>
+        if(window.location.hostname.includes('itchlist.me')) {
+            Sentry.init({ dsn: 'https://5db4b6559c4048a6bb6128db62e0f8db@sentry.io/1487573' });
+        }
+    </script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142533789-1"></script>
