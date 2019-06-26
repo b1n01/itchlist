@@ -4,10 +4,10 @@
     <title></title>
 </head>
 <body>
-    @if($itches)
-        <p>{{ count($itches) }} itches to update </p>
+    @if($itches->count())
+        <p>{{ $itches->count() }} itches to update </p>
         @php
-        $itch = $itches[0];
+            $itch = $itches->first();
         @endphp
         <form action="/_/paapi/{{ $itch->id }}" method="POST">
              @csrf
