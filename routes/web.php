@@ -37,4 +37,8 @@ Route::group(['middleware' => 'auth'], function () {
     // Account
     Route::get('/me/account', 'AccountController@account')->name('account');
     Route::delete('/api/me/account', 'AccountController@delete')->name('account.delete');
+    
+    // Amazon PA API replacement
+    Route::get('/_/paapi', 'PAAPIController@form')->name('_paapi.form');
+    Route::post('/_/paapi/{id}', 'PAAPIController@update');
 });
