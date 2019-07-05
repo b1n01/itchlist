@@ -117,7 +117,7 @@ window.onload = function () {
   friendsTemplate = function friendsTemplate(friend) {
     var html = '';
     html += '<li>';
-    html += '<a class="friend" href="' + '/' + friend.uuid + '">';
+    html += '<a class="friend" href="' + '/u/' + friend.uuid + '">';
     html += '<img class="friend-pic" src=' + friend.pic + '>';
     html += '<span class="friend-name">' + friend.name + '</span>';
     html += '</a>';
