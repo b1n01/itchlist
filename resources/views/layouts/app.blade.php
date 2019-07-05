@@ -9,7 +9,12 @@
         @else
         <li class="menu-item">
             <a href="{{ route('list') }}">
-                <i class="fas fa-tasks menu-icon"></i><span class="menu-label">My List</span>
+                <i class="fas fa-tasks menu-icon"></i><span class="menu-label">Your List</span>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="{{ route('booked') }}">
+                <i class="fas fa-bookmark menu-icon"></i></i><span class="menu-label">Booked</span>
             </a>
         </li>
         @endguest   

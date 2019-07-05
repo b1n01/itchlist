@@ -54,4 +54,15 @@ class ListController extends Controller
 
         return view('list', ['user' => $otherUser, 'itches' => $itches, 'areFriends' => $areFriends]);
     }
+
+    /**
+     * Get list of booked itches
+     */
+    public function booked()
+    {
+        $user = auth()->user();
+        $itches = Itch::where('booked_by', $user->id)->orderBy('created_at', 'desc')->get();
+
+        return view('booked', ['itches' => $itches]);                
+    }
 }
