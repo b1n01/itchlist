@@ -13,7 +13,7 @@
 
 // Lists
 Route::get('/', 'ListController@list')->name('list');
-Route::get('/{uuid}', 'ListController@userList')->name('user.list');
+Route::get('/u/{uuid}', 'ListController@userList')->name('user.list');
 
 // Auth
 Route::get('/auth/join', 'AuthController@loginForm')->name('login.form');

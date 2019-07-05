@@ -189,11 +189,12 @@
 .list-add-input {
     padding: 0 8px;
     border: none;
-    width: 250px;
     border-radius: 5px;
     color: #929292;
     font-size: 15px;
     height: 32px;
+    flex: 1 1 auto;
+    width: 350px;
 }
 
 .list-add-button {
@@ -206,6 +207,7 @@
     cursor: pointer;
     font-size: 14px;
     font-family: $regular;
+    flex: 1 0 auto;
 }
 
 @media only screen and (min-width: $breakDesktop) {
@@ -231,7 +233,15 @@
     }
 
     .feed-item {
-        margin: 20px 20px 0 0;
+        margin: 20px 10px 0 10px;
         width: 428px;
+    }
+
+    .list-add-input {
+        flex: none;
+    }
+
+    .list-add-button {
+        flex: none;
     }
 }

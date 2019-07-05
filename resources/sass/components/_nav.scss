@@ -38,11 +38,11 @@
 }
 
 .menu-icon {
-    font-size: 21px;
+    font-size: 18px;
 }
 
 .menu-logo {
-    height: 26px;
+    height: 21px;
 }
 
 .menu-logo-label {
@@ -55,7 +55,7 @@
 .menu-label {
     display: none;
     margin-left: 12px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     font-family: $nice;
 }
@@ -105,9 +105,9 @@
 
 @media only screen and (min-width: $breakDesktop) {
     .menu-logo {
-        right: -15px;
+        right: -12px;
         position: relative;
-        top: -5px;
+        top: -6px;
     }
 
     .menu-logo-label {
@@ -116,7 +116,7 @@
         text-transform: uppercase;
         font-weight: bold;
         color: #F26242;
-        font-size: 21px;
+        font-size: 18px;
     }
 
     .menu-logo-wrapper {

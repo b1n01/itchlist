@@ -378,11 +378,11 @@ a:active {
 }
 
 .menu-icon {
-  font-size: 21px;
+  font-size: 18px;
 }
 
 .menu-logo {
-  height: 26px;
+  height: 21px;
 }
 
 .menu-logo-label {
@@ -392,7 +392,7 @@ a:active {
 .menu-label {
   display: none;
   margin-left: 12px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   font-family: "Dosis", sans-serif;
 }
@@ -442,9 +442,9 @@ a:active {
 
 @media only screen and (min-width: 650px) {
   .menu-logo {
-    right: -15px;
+    right: -12px;
     position: relative;
-    top: -5px;
+    top: -6px;
   }
 
   .menu-logo-label {
@@ -453,7 +453,7 @@ a:active {
     text-transform: uppercase;
     font-weight: bold;
     color: #F26242;
-    font-size: 21px;
+    font-size: 18px;
   }
 
   .menu-logo-wrapper {
@@ -477,13 +477,14 @@ a:active {
   align-items: center;
   height: 34px;
   padding: 0 9px;
-  border-radius: 32px;
-  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-radius: 17px;
+  border: 1px solid rgba(0, 0, 0, 0);
   margin: 0 15px 0 0;
 }
 
 .searchbox-icon {
-  color: #acacac;
+  color: #F26242;
+  font-size: 18px;
 }
 
 .searchbox-input {
@@ -530,29 +531,23 @@ a:active {
 }
 
 .searchbox-input::-webkit-input-placeholder {
-  color: #acacac;
+  color: #929292;
 }
 
 .searchbox-input::-moz-placeholder {
-  color: #acacac;
+  color: #929292;
 }
 
 .searchbox-input:-ms-input-placeholder {
-  color: #acacac;
+  color: #929292;
 }
 
 .searchbox-input::-ms-input-placeholder {
-  color: #acacac;
+  color: #929292;
 }
 
 .searchbox-input::placeholder {
-  color: #acacac;
-}
-
-@media only screen and (min-width: 650px) {
-  .searchbox-input {
-    width: 155px;
-  }
+  color: #929292;
 }
 
 .wellcome {
@@ -745,11 +740,12 @@ a:active {
 .list-add-input {
   padding: 0 8px;
   border: none;
-  width: 250px;
   border-radius: 5px;
   color: #929292;
   font-size: 15px;
   height: 32px;
+  flex: 1 1 auto;
+  width: 350px;
 }
 
 .list-add-button {
@@ -762,6 +758,7 @@ a:active {
   cursor: pointer;
   font-size: 14px;
   font-family: "Open Sans", sans-serif;
+  flex: 1 0 auto;
 }
 
 @media only screen and (min-width: 650px) {
@@ -787,8 +784,16 @@ a:active {
   }
 
   .feed-item {
-    margin: 20px 20px 0 0;
+    margin: 20px 10px 0 10px;
     width: 428px;
+  }
+
+  .list-add-input {
+    flex: none;
+  }
+
+  .list-add-button {
+    flex: none;
   }
 }
 

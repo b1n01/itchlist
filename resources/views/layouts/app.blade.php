@@ -34,8 +34,7 @@
         @if(Auth::check())
     <div id="searchbox" class="searchbox">
         <input id="searchbox-input" class="searchbox-input" type="input" name="searches" placeholder="Search your friends">
-        <i id="searchbox-icon" class="fas fa-search searchbox-icon"></i>
-         <!--<i class="fas fa-user-friends searchbox-icon"></i>-->
+        <i id="searchbox-icon" class="fas fa-user-friends searchbox-icon"></i>
         <ul class="friends" id="friends"></ul>
     </div>
     @endif
@@ -62,16 +61,13 @@
 </main> 
 
 <section class="footer">
-
     <ul>
         <li class="footer-item"><a target="_blank" href="/static/about.html">About</a></li>
         <li class="footer-item"><a target="_blank" href="/static/policy.html#privacy">Privacy</a></li>
         <li class="footer-item"><a target="_blank" href="/static/policy.html#terms">Terms</a></li>
         <li class="footer-item"><a target="_blank" href="https://www.cookiesandyou.com/">Cookies</a></li>
     </ul>
-
     <p class="footer-disclaimer">©{{ date('Y') }} Itchlist all rights reserved</p>
-
 </section>
         
 @endsection

@@ -60,15 +60,24 @@ window.onload = function ()
         $("#searchbox-input").trigger('focus')        
         if($(window).width() < 650) {
             if($('#searchbox-input').css('width') == '0px') {
-                $('#searchbox-input').css('width', '155px')    
+                $('#searchbox-input').css('width', '120px')    
                 $('.menu-logo-wrapper').css('display', 'none')
+                $('.searchbox').css('border', '1px solid rgba(0,0,0,.25)')
             } else {
                 $('#searchbox-input').css('width', '0px')
                 $('.menu-logo-wrapper').css('display', 'initial')
+                $('.searchbox').css('border', '1px solid rgba(0,0,0,.0)')
             }
         } else {
-            $('#searchbox-input').css('width', '155px')    
-            $('.menu-logo-wrapper').css('display', 'initial')
+            if($('#searchbox-input').css('width') == '0px') {
+                $('#searchbox-input').css('width', '120px')    
+                $('.menu-logo-wrapper').css('display', 'initial')
+                $('.searchbox').css('border', '1px solid rgba(0,0,0,.25)')
+            } else {
+                $('#searchbox-input').css('width', '0px')
+                $('.menu-logo-wrapper').css('display', 'initial')
+                $('.searchbox').css('border', '1px solid rgba(0,0,0,.0)')
+            }
         }
     })
 

@@ -94,8 +94,7 @@
 /***/ (function(module, exports) {
 
 window.onload = function () {
-  var clickEvent = 'touchstart' in document.documentElement ? 'touchstart' : 'click'; // Init Sentry
-  // Config axios
+  var clickEvent = 'touchstart' in document.documentElement ? 'touchstart' : 'click'; // Config axios
 
   axios.interceptors.response.use(function (response) {
     return response;
@@ -154,15 +153,24 @@ window.onload = function () {
 
     if ($(window).width() < 650) {
       if ($('#searchbox-input').css('width') == '0px') {
-        $('#searchbox-input').css('width', '155px');
+        $('#searchbox-input').css('width', '120px');
         $('.menu-logo-wrapper').css('display', 'none');
+        $('.searchbox').css('border', '1px solid rgba(0,0,0,.25)');
       } else {
         $('#searchbox-input').css('width', '0px');
         $('.menu-logo-wrapper').css('display', 'initial');
+        $('.searchbox').css('border', '1px solid rgba(0,0,0,.0)');
       }
     } else {
-      $('#searchbox-input').css('width', '155px');
-      $('.menu-logo-wrapper').css('display', 'initial');
+      if ($('#searchbox-input').css('width') == '0px') {
+        $('#searchbox-input').css('width', '120px');
+        $('.menu-logo-wrapper').css('display', 'initial');
+        $('.searchbox').css('border', '1px solid rgba(0,0,0,.25)');
+      } else {
+        $('#searchbox-input').css('width', '0px');
+        $('.menu-logo-wrapper').css('display', 'initial');
+        $('.searchbox').css('border', '1px solid rgba(0,0,0,.0)');
+      }
     }
   }); // Handle searchbox
 
