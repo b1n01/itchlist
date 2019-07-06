@@ -21,7 +21,8 @@
 }
 
 .feed-heading {
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 10px;
     color: $baseLight;
     font-size: 14px;
     text-transform: uppercase;
@@ -54,10 +55,12 @@
     right: 0;
     font-size: 12px;
     text-align: right;
-    padding: 8px;
+    padding: 3px;
     line-height: 16px;
     display: flex;
     align-items: center;
+    background-color: rgba(255,255,255,0.75);
+    padding: 3px;
 }
 
 .feed-booked-by-pic {
@@ -150,6 +153,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
     font-size: 14px;
+    line-height: 16px;
     color: $base;
 }
 
