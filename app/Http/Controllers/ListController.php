@@ -63,6 +63,7 @@ class ListController extends Controller
         $user = auth()->user();
         $itches = Itch::where('booked_by', $user->id)
             ->with('user')
+            ->where('hidden', false)
             ->orderBy('created_at', 'desc')->get();
 
         return view('booked', ['itches' => $itches]);                
