@@ -61,7 +61,9 @@ class ListController extends Controller
     public function booked()
     {
         $user = auth()->user();
-        $itches = Itch::where('booked_by', $user->id)->orderBy('created_at', 'desc')->get();
+        $itches = Itch::where('booked_by', $user->id)
+            ->with('user')
+            ->orderBy('created_at', 'desc')->get();
 
         return view('booked', ['itches' => $itches]);                
     }
