@@ -406,6 +406,7 @@ a:active {
 .profile-pic {
   border-radius: 50%;
   height: 34px;
+  width: 34px;
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.35);
 }
@@ -520,6 +521,7 @@ a:active {
 .friend-pic {
   border-radius: 50%;
   height: 38px;
+  width: 38px;
   margin: 11px;
   float: left;
 }
