@@ -79,9 +79,11 @@ class ItchController extends Controller
         $itch = Itch::find($id);
         $user = auth()->user();
 
-        if($itch && $itch->user_id == $user->id) {
-            $itch->delete();
+        if(!$itch || $itch->user_id != $user->id) {
+            return response()->json(['response' => 'You can only delete your Itches'], 401);
         }
+
+        $itch->delete();
 
         return response()->json(['response' => 'ok']);
     }
