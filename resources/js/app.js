@@ -1,3 +1,6 @@
+var $ = require("jquery");
+var axios = require('axios');
+
 window.onload = function () 
 {
     const clickEvent =  'touchstart' in document.documentElement ? 'touchstart' : 'click';
@@ -21,7 +24,7 @@ window.onload = function ()
     })
 
     // Render friends list
-    friendsTemplate = function(friend) {
+    varfriendsTemplate = function(friend) {
         var html = ''
         html += '<li>'
         html += '<a class="friend" href="' + '/u/' + friend.uuid +'">'

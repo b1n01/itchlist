@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('head')
+    <title>{{ config('app.name', 'Ithclist') }} | Your list</title>
+@endsection
+
 @section('content')
 
     @if(!Auth::check())
@@ -26,7 +30,7 @@
                 </span>
             </p>
             <p id="feed-heading-copied" class="feed-heading" style="display: none;">
-                <span id="feed-share">
+                <span>
                     <span>Url copied to clipboard</span>
                 </span>
             </p>
@@ -45,7 +49,7 @@
             <div class="feed-items">
                 @foreach ($itches as $itch)
                     <div class="feed-item {{ $itch->hidden ? 'hidden' : '' }}">
-                        <img class="feed-pic" src="{{ $itch->pic ?: asset('images/loading-preview.svg')}}">
+                        <img class="feed-pic" src="{{ $itch->pic ?: asset('images/loading-preview.svg')}}" alt="item preview">
                         <p class="feed-price">{{ $itch->price ?: ''}}</p>
                         <p class="feed-description">{{ $itch->description ?: $itch->url }}</p>
                         <div class="feed-overlay">

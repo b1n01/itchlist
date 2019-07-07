@@ -21,7 +21,7 @@
     </ul>
     
     <a class="menu-logo-wrapper" href="{{ route('list') }}">
-        <img src="{{ asset('images/logo.svg') }}" class="menu-logo">
+        <img src="{{ asset('images/logo.svg') }}" class="menu-logo" alt="logo">
         <span class="menu-logo-label">Itchlist</span>
     </a>
 
@@ -38,7 +38,7 @@
         <ul class="friends" id="friends"></ul>
     </div>
     @endif
-        <img id="profile-hook" src="{{ Auth::user()->pic }}" class="profile-pic">
+        <img id="profile-hook" src="{{ Auth::user()->pic }}" class="profile-pic" alt="user profile pic">
     </div>
      <div id="profile-dropdown" class="profile-dropdown">
         <!-- <a href="{ route('home') }}" class="profile-item">My list</a> -->

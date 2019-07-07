@@ -1,21 +1,25 @@
 @extends('layouts.app')
 
+@section('head')
+    <title>{{ config('app.name', 'Ithclist') }} | {{ $user->name }} list</title>
+@endsection
+
 @section('content')
     
     <section class="feed">
 
-        <p class="feed-heading"><img class="heading-pic" src="{{ $user->pic }}">{{ $user->name }}'s itchlist</p>
+        <p class="feed-heading"><img class="heading-pic" src="{{ $user->pic }}" alt="user profile pic">{{ $user->name }}'s itchlist</p>
 
         <div class="feed-items">
             @foreach ($itches as $itch)
             <div class="feed-item">
-                    <img class="feed-pic" src="{{ $itch->pic ?: asset('images/loading-preview.svg')}}">
+                    <img class="feed-pic" src="{{ $itch->pic ?: asset('images/loading-preview.svg')}}" alt="item preview">
                     <p class="feed-price">{{ $itch->price ?: ''}}</p>
                     <p class="feed-description">{{ $itch->description ?: $itch->url }}</p>
                     @if($itch->booked_by)
                         <div class="feed-booked-by">
                             <p>Booked by {{ $itch->bookedBy->name }}</p>
-                            <img src="{{ $itch->bookedBy->pic }}" class="feed-booked-by-pic" />
+                            <img src="{{ $itch->bookedBy->pic }}" class="feed-booked-by-pic" alt="user profile pic"/>
                         </div>
                     @endif
                     <div class="feed-overlay">

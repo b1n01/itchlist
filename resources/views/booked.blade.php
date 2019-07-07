@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('head')
+    <title>{{ config('app.name', 'Ithclist') }} | Booked items</title>
+@endsection
+
 @section('content')
 
     <section class="feed">
@@ -10,12 +14,12 @@
             <div class="feed-items">
                 @foreach ($itches as $itch)
                     <div class="feed-item {{ $itch->hidden ? 'hidden' : '' }}">
-                        <img class="feed-pic" src="{{ $itch->pic ?: asset('images/loading-preview.svg')}}">
+                        <img class="feed-pic" src="{{ $itch->pic ?: asset('images/loading-preview.svg')}}"alt="item preview">
                         <p class="feed-price">{{ $itch->price ?: ''}}</p>
                         <p class="feed-description">{{ $itch->description ?: $itch->url }}</p>
                         <div class="feed-booked-by">
                             <p>Added by {{ $itch->user->name }}</p>
-                            <img src="{{ $itch->user->pic }}" class="feed-booked-by-pic" />
+                            <img src="{{ $itch->user->pic }}" class="feed-booked-by-pic" alt="user profile pic"/>
                         </div>
                         <div class="feed-overlay">
                             <div class=feed-actions>
