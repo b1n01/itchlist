@@ -12688,7 +12688,7 @@ window.onload = function () {
     $('#profile-dropdown').toggle();
   }); // Render friends list
 
-  varfriendsTemplate = function varfriendsTemplate(friend) {
+  friendsTemplate = function friendsTemplate(friend) {
     var html = '';
     html += '<li>';
     html += '<a class="friend" href="' + '/u/' + friend.uuid + '">';

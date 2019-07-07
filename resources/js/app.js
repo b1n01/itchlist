@@ -24,7 +24,7 @@ window.onload = function ()
     })
 
     // Render friends list
-    varfriendsTemplate = function(friend) {
+    friendsTemplate = function(friend) {
         var html = ''
         html += '<li>'
         html += '<a class="friend" href="' + '/u/' + friend.uuid +'">'
