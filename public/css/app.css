@@ -4759,6 +4759,8 @@ a:active {
 .menu-item {
   padding-right: 21px;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
 }
 
 .menu-item a {
@@ -4774,7 +4776,7 @@ a:active {
 }
 
 .menu-logo {
-  height: 21px;
+  height: 18px;
 }
 
 .menu-logo-label {
@@ -4790,7 +4792,6 @@ a:active {
 }
 
 .profile {
-  flex: 1 0 0;
   display: flex;
   justify-content: flex-end;
 }
@@ -4807,7 +4808,7 @@ a:active {
   position: absolute;
   right: 20px;
   width: 220px;
-  top: 48px;
+  top: 47px;
   border: 1px solid rgba(0, 0, 0, 0.35);
   border-radius: 5px;
   background-color: white;
@@ -4818,8 +4819,8 @@ a:active {
 .profile-item {
   padding: 15px 0;
   text-align: center;
-  color: black;
   display: block;
+  color: #929292;
 }
 
 .profile-item:last-of-type {
@@ -4870,9 +4871,11 @@ a:active {
   align-items: center;
   height: 34px;
   padding: 0 9px;
-  border-radius: 17px;
+  border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0);
-  margin: 0 15px 0 0;
+  position: absolute;
+  background-color: white;
+  right: 65px;
 }
 
 .searchbox-icon {
@@ -4890,11 +4893,10 @@ a:active {
 .friends {
   background-color: white;
   position: absolute;
-  top: 35px;
-  left: -42px;
-  width: 250px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+  top: 34px;
+  left: 0px;
+  width: 238px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
   display: none;
   border-radius: 5px;
 }
@@ -4902,7 +4904,6 @@ a:active {
 .friend {
   height: 60px;
   font-size: 14px;
-  color: black;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -4921,27 +4922,32 @@ a:active {
 .friend-name {
   line-height: 60px;
   margin-left: 10px;
-  color: black;
+  color: #929292;
 }
 
 .searchbox-input::-webkit-input-placeholder {
   color: #929292;
+  font-size: 12px;
 }
 
 .searchbox-input::-moz-placeholder {
   color: #929292;
+  font-size: 12px;
 }
 
 .searchbox-input:-ms-input-placeholder {
   color: #929292;
+  font-size: 12px;
 }
 
 .searchbox-input::-ms-input-placeholder {
   color: #929292;
+  font-size: 12px;
 }
 
 .searchbox-input::placeholder {
   color: #929292;
+  font-size: 12px;
 }
 
 .wellcome {

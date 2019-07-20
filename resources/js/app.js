@@ -52,41 +52,34 @@ window.onload = function ()
         $('#friends').html(friendsHtml)
     }
 
-    $("#searchbox").on('focusout', function() {
-        setTimeout(function() {
+    $("#searchbox").on('focusout', function(event) {
+        // Check if user are clickig on fliends list
+        if($(event.relatedTarget).parents('#friends').length == 0) {
             $('#friends').css('display', 'none')
             $("#searchbox-input").val('')
-        }, 150)
+        }
     })
 
     $("#searchbox-icon").on('click', function() {
-        $("#searchbox-input").trigger('focus')        
-        if($(window).width() < 650) {
-            if($('#searchbox-input').css('width') == '0px') {
-                $('#searchbox-input').css('width', '120px')    
-                $('.menu-logo-wrapper').css('display', 'none')
-                $('.searchbox').css('border', '1px solid rgba(0,0,0,.25)')
-            } else {
-                $('#searchbox-input').css('width', '0px')
-                $('.menu-logo-wrapper').css('display', 'initial')
-                $('.searchbox').css('border', '1px solid rgba(0,0,0,.0)')
-            }
+        $("#searchbox-icon").toggleClass('fa-search').toggleClass('fa-times')
+        var width = '210px'
+        var border = '1px solid rgba(0,0,0,.25)'
+        
+        if($('#searchbox-input').css('width') == '0px') {
+            $('#searchbox-input').css('width', width)    
+            $('.searchbox').css('border', border)
+            $('.menu-logo-wrapper').css('display', 'initial')
+            $("#searchbox-input").trigger('focus')
         } else {
-            if($('#searchbox-input').css('width') == '0px') {
-                $('#searchbox-input').css('width', '120px')    
-                $('.menu-logo-wrapper').css('display', 'initial')
-                $('.searchbox').css('border', '1px solid rgba(0,0,0,.25)')
-            } else {
-                $('#searchbox-input').css('width', '0px')
-                $('.menu-logo-wrapper').css('display', 'initial')
-                $('.searchbox').css('border', '1px solid rgba(0,0,0,.0)')
-            }
+            $('.menu-logo-wrapper').css('display', 'initial')
+            $('#searchbox-input').css('width', '0px')
+            $('.searchbox').css('border', 'none')
         }
     })
 
     // Handle searchbox
     let searchTimeout = null
-    $("#searchbox-input").on("keyup", function() {
+    $("#searchbox-input").on("keyup focus", function() {
         clearTimeout(searchTimeout)
         $('#friends').css('display', 'initial')
         $('#friends').html('<li class="friend"><span class="friend-name">Searching...</span></li>')
@@ -96,7 +89,7 @@ window.onload = function ()
                 .then(function (response) {
                     renderFriends(response.data, $("#searchbox-input").val())
                 })
-        }, 500)
+        }, 150)
     })
 
     // Item actions

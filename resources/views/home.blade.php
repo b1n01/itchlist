@@ -71,8 +71,7 @@
         @else
             @if(Auth::check())
                 <div class="feed-empty">
-                    <p>Hi! Looks like you are new here</p>
-                    <p>Use '+ ADD' to add items to your list</p>
+                    <p class="feed-heading">Hi! Looks like you are new here<br>Use '+ ADD' to add items to your list</p>
                 </div>
             @endif
         @endif

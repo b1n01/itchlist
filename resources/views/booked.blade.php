@@ -33,7 +33,7 @@
         @else
             @if(Auth::check())
                 <div class="feed-empty">
-                    <p>Aw, Snap! You have no booked itches</p>
+                    <p class="feed-heading">Aw, Snap! You haven't added an item yet</p>
                 </div>
             @endif
         @endif

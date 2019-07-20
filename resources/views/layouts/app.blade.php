@@ -34,7 +34,7 @@
         @if(Auth::check())
     <div id="searchbox" class="searchbox">
         <input id="searchbox-input" class="searchbox-input" type="input" name="searches" placeholder="Search your friends">
-        <i id="searchbox-icon" class="fas fa-user-friends searchbox-icon"></i>
+        <i id="searchbox-icon" class="fas fa-search searchbox-icon"></i>
         <ul class="friends" id="friends"></ul>
     </div>
     @endif
