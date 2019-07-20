@@ -13,6 +13,11 @@
             </a>
         </li>
         <li class="menu-item">
+            <a href="{{ route('feed') }}">
+                <i class="fas fa-users menu-icon"></i><span class="menu-label">Friends' List</span>
+            </a>
+        </li>
+        <li class="menu-item">
             <a href="{{ route('booked') }}">
                 <i class="fas fa-bookmark menu-icon"></i></i><span class="menu-label">Booked</span>
             </a>
@@ -20,11 +25,6 @@
         @endguest   
     </ul>
     
-    <a class="menu-logo-wrapper" href="{{ route('list') }}">
-        <img src="{{ asset('images/logo.svg') }}" class="menu-logo" alt="logo">
-        <span class="menu-logo-label">Itchlist</span>
-    </a>
-
     @guest
     <div class="profile">
         <a class="profile-join" href="{{ route('login.form') }}">Join</a>

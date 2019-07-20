@@ -66,6 +66,29 @@ class ListController extends Controller
             ->where('hidden', false)
             ->orderBy('created_at', 'desc')->get();
 
-        return view('booked', ['itches' => $itches]);                
+        return view('booked', ['itches' => $itches]);
+    }
+
+    /**
+     * Get a list of itches add by your friends
+     */
+    public function feed(Friendship $friendship)
+    {
+        $user = auth()->user();
+        $friends = $friendship->getFriends($user);
+
+        $uuids = array_map(function($friend) {
+            return $friend['uuid'];
+        }, $friends);
+
+        $itches = Itch::where('hidden', false)
+            ->with('user')
+            ->whereHas('user', function($query) use ($uuids) {
+                $query->whereIn('uuid', $uuids);
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('feed', ['itches' => $itches]);
     }
 }

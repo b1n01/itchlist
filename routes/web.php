@@ -31,6 +31,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/api/itch/{id}/show', 'ItchController@toggle')->name('itch.show');
     Route::post('/api/itch/{id}/hide', 'ItchController@toggle')->name('itch.hide');
     
+    // Feed
+    Route::get('/feed', 'ListController@feed')->name('feed');
+
     // Booked
     Route::get('/booked', 'ListController@booked')->name('booked');
     
