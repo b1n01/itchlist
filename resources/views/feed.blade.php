@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('head')
-    <title>{{ config('app.name', 'Ithclist') }} | Booked items</title>
+    <title>{{ config('app.name', 'Ithclist') }} | Friends' list</title>
 @endsection
 
 @section('content')
