@@ -21,7 +21,7 @@ class ListController extends Controller
         if($user) {
             $itches = Itch::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
         } else {
-            $itches = Itch::where('hidden', false)->orderBy('created_at', 'desc')->limit(15)->get();
+            $itches = Itch::where('hidden', false)->orderBy('created_at', 'desc')->limit(30)->get();
         }
 
         return view('home', ['itches' => $itches]);                   
