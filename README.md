@@ -1,6 +1,6 @@
 # Itchlist: a better whishlist 
 
-💢 [https://itchlist.b1n01.com](Itchlist) is a platform that lets user build and share whishlists build around their social network. 
+💢 [Itchlist](https://itchlist.b1n01.com) is a platform that lets user build and share whishlists build around their social network. 
 
 ## Up and running
 
